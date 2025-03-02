@@ -15,7 +15,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       initialRoute: ' /',
       routes: {
-        ' /': (context)=> LogoutPage()
+        ' /': (context)=> LoginPage(),
+        ' /logoutpage': (context)=> LogoutPage()
+
       },
 
     );

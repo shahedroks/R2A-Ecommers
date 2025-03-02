@@ -27,7 +27,7 @@ class _LoginPageState extends State<LoginPage> {
             children: [
               SizedBox(height: 20,),
               CustomImage(),
-              CustomWelcomeText(welcomeText: welcome,),
+              CustomWelcomeText(welcomeText: welcome,signIn: signin2,),
             SizedBox(height: 70,),
             CustomTextBox(
               hintText: hintEmail,
@@ -42,7 +42,7 @@ class _LoginPageState extends State<LoginPage> {
               SizedBox(height: 12,),
 
 
-              CustomSigninBox(signup: signin,)
+              CustomSigninBox(signup: signin,account: noAccount,signin: signUp,)
             ],
           ),
         )
