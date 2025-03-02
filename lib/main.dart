@@ -1,4 +1,5 @@
 import 'package:ecommers_project/page/iogin_page.dart';
+import 'package:ecommers_project/page/logout_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       initialRoute: ' /',
       routes: {
-        ' /': (context)=> LoginPage()
+        ' /': (context)=> LogoutPage()
       },
 
     );

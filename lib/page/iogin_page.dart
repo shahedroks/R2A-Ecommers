@@ -1,4 +1,5 @@
 import 'package:ecommers_project/compronet/text.dart';
+import 'package:ecommers_project/custom_widget/custom_image.dart';
 import 'package:ecommers_project/custom_widget/custom_signin_box.dart';
 import 'package:ecommers_project/custom_widget/custom_text_box.dart';
 import 'package:ecommers_project/custom_widget/custom_welcome_text.dart';
@@ -24,8 +25,10 @@ class _LoginPageState extends State<LoginPage> {
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              SizedBox(height: 20,),
+              CustomImage(),
               CustomWelcomeText(welcomeText: welcome,),
-            SizedBox(height: 35,),
+            SizedBox(height: 70,),
             CustomTextBox(
               hintText: hintEmail,
               labelText: lebalEmail,),
@@ -39,7 +42,7 @@ class _LoginPageState extends State<LoginPage> {
               SizedBox(height: 12,),
 
 
-              CustomSigninBox(text: signin,)
+              CustomSigninBox(signup: signin,)
             ],
           ),
         )

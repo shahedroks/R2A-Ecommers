@@ -9,9 +9,13 @@ class CustomTextBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  TextField(
-      controller:controler ,
-        decoration: InputDecoration(enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(50)),borderSide: BorderSide(color: Colors.grey)),
-        focusedBorder:OutlineInputBorder(borderSide: BorderSide(color: Colors.black),borderRadius: BorderRadius.all(Radius.circular(50))) ,hintText:hintText ,labelText: labelText));
+    return  Container(
+      decoration: BoxDecoration(color: Colors.grey[200]),
+      margin: EdgeInsets.symmetric(horizontal: 15),
+      child: TextField(
+        controller:controler ,
+          decoration: InputDecoration(enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(10)),borderSide: BorderSide(color: Colors.grey)),
+          focusedBorder:OutlineInputBorder(borderSide: BorderSide(color: Colors.black),borderRadius: BorderRadius.all(Radius.circular(10))) ,hintText:hintText ,labelText: labelText)),
+    );
   }
 }

@@ -11,13 +11,13 @@ class CustomWelcomeText extends StatelessWidget {
       children: [
         Center(
           child: Container(
-            margin: EdgeInsets.only(top: 250),
+            margin: EdgeInsets.only(top: 15),
             child: Text(welcomeText,style: TextStyle(
-                fontSize: 40,fontWeight: FontWeight.bold
+                fontSize: 50,fontWeight: FontWeight.bold,fontFamily: "text1"
             ),),
           ),
         ),
-       Text('sh')
+       Text(signIn)
 
 
       ],

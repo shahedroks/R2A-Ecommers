@@ -1,6 +1,13 @@
 var hintEmail = " email";
 var hintPassword = "Password";
-var  lebalEmail= "Enter You Email";
-var  lebalPassword= "Enter You Password";
+var  lebalEmail= "Enter Your Email";
+var  lebalPassword= "Enter Your Password";
 var signin="Sign In";
 var welcome='Welcome Back';
+var signin2=' Please signin to your account ';
+var signUp ='Sign Up';
+var signup2=' Please signup to your account ';
+var hintName=' Name';
+var labelName= ' Enter Your Name';
+var noAccount="Don't not an Account?";
+var haveAccount='I Have a Account';
