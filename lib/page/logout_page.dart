@@ -13,6 +13,7 @@ class LogoutPage extends StatefulWidget {
   @override
   State<LogoutPage> createState() => _LogoutPageState();
 }
+var passwordVisible = false;
 
 class _LogoutPageState extends State<LogoutPage> {
   @override
@@ -30,14 +31,18 @@ class _LogoutPageState extends State<LogoutPage> {
               CustomImage(),
               CustomWelcomeText(welcomeText: signUp, signIn: signup2,),
               SizedBox(height: 30,),
-              CustomTextBox(hintText: hintName,labelText: labelName,),
+              CustomTextBox(hintText: hintName,labelText: labelName,visibleIconShow: false,passwordVisible: true,onPressed: (){},),
               SizedBox(height: 20,),
               CustomTextBox(
                 hintText: hintEmail,
-                labelText: lebalEmail,),
+                labelText: lebalEmail,visibleIconShow: false,passwordVisible: true,onPressed:(){},),
               SizedBox(height: 20,),
 
-              CustomTextBox(hintText: hintPassword,labelText: lebalPassword,),
+              CustomTextBox(hintText: hintPassword,labelText: lebalPassword,visibleIconShow: true,passwordVisible: true,onPressed: (){
+                setState(() {
+                  passwordVisible =!passwordVisible;
+                });
+              },),
 
 
               SizedBox(height: 30,),
