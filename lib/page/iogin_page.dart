@@ -1,3 +1,4 @@
+import 'package:ecommers_project/block/bloc.dart';
 import 'package:ecommers_project/compronet/text.dart';
 import 'package:ecommers_project/custom_widget/custom_image.dart';
 import 'package:ecommers_project/custom_widget/custom_signin_box.dart';
@@ -5,6 +6,7 @@ import 'package:ecommers_project/custom_widget/custom_text_box.dart';
 import 'package:ecommers_project/custom_widget/custom_welcome_text.dart';
 import 'package:ecommers_project/page/logout_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 
 class LoginPage extends StatefulWidget {
@@ -15,7 +17,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  var passwordvisible = false;
+  var visibleShowIcon = true;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -31,17 +33,32 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(height: 20,),
                 CustomImage(),
                 CustomWelcomeText(welcomeText: welcome,signIn: signin2,),
+
+
               SizedBox(height: 70,),
-              CustomTextBox(
-                hintText: hintEmail,
-                labelText: lebalEmail,visibleIconShow: false,passwordVisible: !passwordvisible,onPressed: (){},),
+              BlocBuilder<CounterBloc,CounterState>(
+                builder: (context, static) {
+
+                  return CustomTextBox(
+                    hintText: hintEmail,
+                    labelText: lebalEmail,
+                    isVisibleIconShow:static.isVisibleIconShow,
+                    isObscureText: static.isObscureText,
+                    onPressed: (){},);
+                }
+              ),
                 SizedBox(height: 20,),
             
-                CustomTextBox(hintText: hintPassword,labelText: lebalPassword,visibleIconShow: true,passwordVisible:passwordvisible,onPressed: (){
-                setState(() {
-                  passwordvisible =!passwordvisible;
-                });
-                },),
+                BlocBuilder<CounterBloc,CounterState>(
+                  builder: (context, static) {
+                    return CustomTextBox(hintText: hintPassword,labelText: lebalPassword,
+                      isVisibleIconShow:!static.isVisibleIconShow,
+                      isObscureText: !static.isObscureText,
+                      onPressed: (){
+                      context.read<CounterBloc>().add(OnPasswordVisible(isPasswordVisible: static.isPasswordVisible,));
+                    },);
+                  }
+                ),
             
                 Container(
                   margin: EdgeInsets.symmetric(horizontal:10,vertical: 10),

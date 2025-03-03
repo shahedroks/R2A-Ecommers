@@ -1,0 +1,2 @@
+D:/Shahed project/fluttter/ecommers_project/android/app/.cxx/Debug/hh3l2d46/x86_64/CMakeFiles/edit_cache.dir
+D:/Shahed project/fluttter/ecommers_project/android/app/.cxx/Debug/hh3l2d46/x86_64/CMakeFiles/rebuild_cache.dir
