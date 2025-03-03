@@ -3,6 +3,7 @@ import 'package:ecommers_project/custom_widget/custom_image.dart';
 import 'package:ecommers_project/custom_widget/custom_signin_box.dart';
 import 'package:ecommers_project/custom_widget/custom_text_box.dart';
 import 'package:ecommers_project/custom_widget/custom_welcome_text.dart';
+import 'package:ecommers_project/page/logout_page.dart';
 import 'package:flutter/material.dart';
 
 
@@ -42,7 +43,11 @@ class _LoginPageState extends State<LoginPage> {
               SizedBox(height: 12,),
 
 
-              CustomSigninBox(signup: signin,account: noAccount,signin: signUp,)
+              CustomSigninBox(signup: signin,account: noAccount,signin: signUp,
+                function: (){
+                Navigator.pushNamed(context, '/logoutpage');
+              }
+              ,)
             ],
           ),
         )

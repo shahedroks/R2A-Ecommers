@@ -4,8 +4,9 @@ class CustomSigninBox extends StatelessWidget {
   var signup;
   var signin;
   var account;
+  final VoidCallback function;
 
-   CustomSigninBox({super.key,this.signup,this.signin,this.account});
+   CustomSigninBox({super.key,this.signup,this.signin,this.account, required this.function});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,9 @@ class CustomSigninBox extends StatelessWidget {
               children: [
                 Text(account),
                 SizedBox(width: 20,),
-                Text(signin,style: TextStyle(color:Colors.lightBlueAccent),)
+                GestureDetector(
+                  onTap: function,
+                    child: Text(signin,style: TextStyle(color:Colors.lightBlueAccent),))
               ],
             )
           ],
