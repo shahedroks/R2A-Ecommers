@@ -26,7 +26,7 @@ class CustomTextBox extends StatelessWidget {
           builder: (context, static) {
             return TextFormField(
               keyboardType: TextInputType.text,
-              obscureText:static.isObscureText? !static.isObscureText:static.isObscureText,
+              obscureText:isObscureText? !static.isPasswordVisible:static.isObscureText,
 
               controller:controler ,
                 decoration: InputDecoration(
