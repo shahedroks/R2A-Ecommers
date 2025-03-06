@@ -50,7 +50,7 @@ class _LogoutPageState extends State<LogoutPage> {
                     SizedBox(height: 20,),
                     CustomTextBox(hintText: hintPassword,labelText: lebalPassword,
                             isVisibleIconShow: !static.isVisibleIconShow,
-                      isObscureText: static.isObscureText,
+                      isObscureText: !static.isObscureText,
                             onPressed: (){
                           context.read<CounterBloc>().add(OnPasswordVisible(isPasswordVisible: static.isPasswordVisible));
                         },),
