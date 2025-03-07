@@ -16,6 +16,7 @@ class _CustomPageviewState extends State<CustomPageview> {
   Widget build(BuildContext context) {
     return PageView.builder(
       itemCount: widget.image.length,
+      controller: widget.controler,
 
       onPageChanged: (inderx){
         setState(() {
@@ -29,11 +30,14 @@ class _CustomPageviewState extends State<CustomPageview> {
               top: 10,
 
               child: Container(
+                margin: EdgeInsets.symmetric(horizontal: 5),
+                padding: EdgeInsets.symmetric(horizontal: 5),
 
                 height:150 ,
                 width: 400,
                 child: ClipRRect(
-                    child: Image(image: AssetImage('assets/${widget.image[inderx]}.jpg'),fit: BoxFit.cover,)),
+                  borderRadius: BorderRadius.all(Radius.circular(30)),
+                    child: Image(image: AssetImage('${widget.image[inderx]}'),fit: BoxFit.cover,)),
               ),
             )
           ],
