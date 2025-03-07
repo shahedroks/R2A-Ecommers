@@ -1,10 +1,10 @@
 import 'package:ecommers_project/block/bloc.dart';
-import 'package:ecommers_project/compronet/text.dart';
-import 'package:ecommers_project/custom_widget/custom_image.dart';
-import 'package:ecommers_project/custom_widget/custom_signin_box.dart';
-import 'package:ecommers_project/custom_widget/custom_text_box.dart';
-import 'package:ecommers_project/custom_widget/custom_welcome_text.dart';
-import 'package:ecommers_project/page/iogin_page.dart';
+import 'package:ecommers_project/page/login_page/compronet/text.dart';
+import 'package:ecommers_project/page/login_page/custom_widget/custom_image.dart';
+import 'package:ecommers_project/page/login_page/custom_widget/custom_signin_box.dart';
+import 'package:ecommers_project/page/login_page/custom_widget/custom_text_box.dart';
+import 'package:ecommers_project/page/login_page/custom_widget/custom_welcome_text.dart';
+import 'package:ecommers_project/page/login_page/iogin_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

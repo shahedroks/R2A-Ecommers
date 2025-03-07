@@ -1,6 +1,7 @@
 import 'package:ecommers_project/block/bloc.dart';
-import 'package:ecommers_project/page/iogin_page.dart';
-import 'package:ecommers_project/page/logout_page.dart';
+import 'package:ecommers_project/page/login_page/iogin_page.dart';
+import 'package:ecommers_project/page/login_page/logout_page.dart';
+import 'package:ecommers_project/page/users_home_page/users_home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -20,10 +21,12 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         initialRoute: ' /',
         routes: {
-          '/': (context)=> LoginPage(),
+          '/': (context)=> UsersHomePage(),
+          '/sdgasgf': (context)=> LoginPage(),
           "/logoutpage":(context)=>LogoutPage()
 
         },
+        debugShowCheckedModeBanner: false,
 
       ),
     );
