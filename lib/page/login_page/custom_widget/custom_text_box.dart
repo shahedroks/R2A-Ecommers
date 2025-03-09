@@ -1,4 +1,4 @@
-import 'package:ecommers_project/block/bloc.dart';
+import 'package:ecommers_project/page/login_page/block/login_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,7 +22,7 @@ class CustomTextBox extends StatelessWidget {
       child: Container(
         width: MediaQuery.of(context).size.width*10,
         height:50 ,
-        child: BlocBuilder<CounterBloc,CounterState>(
+        child: BlocBuilder<LoginBloc,LoginState>(
           builder: (context, static) {
             return TextFormField(
               keyboardType: TextInputType.text,

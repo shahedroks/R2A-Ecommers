@@ -1,4 +1,4 @@
-import 'package:ecommers_project/block/bloc.dart';
+import 'package:ecommers_project/page/login_page/block/login_bloc.dart';
 import 'package:ecommers_project/page/login_page/compronet/text.dart';
 import 'package:ecommers_project/page/login_page/custom_widget/custom_image.dart';
 import 'package:ecommers_project/page/login_page/custom_widget/custom_signin_box.dart';
@@ -36,7 +36,7 @@ class _LoginPageState extends State<LoginPage> {
 
 
               SizedBox(height: 70,),
-              BlocBuilder<CounterBloc,CounterState>(
+              BlocBuilder<LoginBloc,LoginState>(
                 builder: (context, static) {
 
                   return CustomTextBox(
@@ -49,13 +49,13 @@ class _LoginPageState extends State<LoginPage> {
               ),
                 SizedBox(height: 20,),
             
-                BlocBuilder<CounterBloc,CounterState>(
+                BlocBuilder<LoginBloc,LoginState>(
                   builder: (context, static) {
                     return CustomTextBox(hintText: hintPassword,labelText: lebalPassword,
                       isVisibleIconShow:!static.isVisibleIconShow,
                       isObscureText: !static.isObscureText,
                       onPressed: (){
-                      context.read<CounterBloc>().add(OnPasswordVisible(isPasswordVisible: static.isPasswordVisible,));
+                      context.read<LoginBloc>().add(OnPasswordVisibleEvent(isPasswordVisible: static.isPasswordVisible,));
                     },);
                   }
                 ),
