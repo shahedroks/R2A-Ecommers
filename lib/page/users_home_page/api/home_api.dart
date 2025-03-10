@@ -1,0 +1,1 @@
+var product = Uri.parse("https://dummyjson.com/products");

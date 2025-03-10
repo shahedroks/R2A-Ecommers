@@ -17,10 +17,10 @@ class HomeBloc extends Bloc<HomeEvent,HomeState>{
 
 
     await  Timer.periodic(Duration(seconds: 3), (Timer time) {
-        print("Timer is okk");
+
         if (countIndexCopy < imageCopy.length-1) {
           countIndexCopy++;
-          print('Duration OK');
+          print(countIndexCopy);
         } else {
           countIndexCopy = 0;
         }

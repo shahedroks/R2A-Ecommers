@@ -1,6 +1,8 @@
 import 'package:ecommers_project/page/users_home_page/custom_widget/custom_appber.dart';
+import 'package:ecommers_project/page/users_home_page/custom_widget/custom_cetagori_button.dart';
 import 'package:ecommers_project/page/users_home_page/custom_widget/custom_pageview.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 class UsersHomePage extends StatefulWidget {
    UsersHomePage({super.key});
 
@@ -16,6 +18,7 @@ var image =[
 ];
 var currentIndex=0;
 
+
 class _UsersHomePageState extends State<UsersHomePage> {
   @override
   void initState() {
@@ -26,9 +29,19 @@ class _UsersHomePageState extends State<UsersHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(100),
+        preferredSize: Size.fromHeight(90),
           child: CustomAppber()),
-      body:CustomPageview(),
+      body:Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            height: 160,
+              width: double.infinity,
+              child: CustomPageview()),
+          SizedBox(height: 5,),
+          CustomCetagoriButton(onPressed: (){})
+        ],
+      ),
     );
   }
 }

@@ -29,28 +29,30 @@ class _CustomPageviewState extends State<CustomPageview> {
       builder: (context,statec) {
         return PageView.builder(
           itemCount:image.length,
+
           // controller: widget.controler,
 
           onPageChanged: (index){
             // setState(() {
             //   pageChange.isPageChange(pageChangeView);
-            //
+
             //   print('$index');
             // });
+
             context.read<HomeBloc>().add(OnPageViewUpdateEvent(image:image));
           },
           itemBuilder:(contex, index){
             return Stack(
               children: [
                 Positioned(
-                  top: 10,
+
 
                   child: Container(
-                    margin: EdgeInsets.symmetric(horizontal: 5),
-                    padding: EdgeInsets.symmetric(horizontal: 5),
+                    margin: EdgeInsets.symmetric(horizontal: 2),
+                    padding: EdgeInsets.symmetric(horizontal: 2),
 
-                    height:150 ,
-                    width: 400,
+                    height:190,
+                    width: double.infinity,
                     child: ClipRRect(
                       borderRadius: BorderRadius.all(Radius.circular(30)),
                         child: Image(image: AssetImage('${image[index]}'),fit: BoxFit.cover,)),
