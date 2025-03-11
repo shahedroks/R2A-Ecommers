@@ -10,7 +10,7 @@ class Product {
   final double rating;
   final int stock;
   final List<String> tags;
-  final String brand;
+  String ? brand;
   final String sku;
   final double weight;
   final Dimensions dimensions;
@@ -48,8 +48,7 @@ class Product {
     required this.images,
     required this.thumbnail,
   });
-
-  factory Product.fromJson(Map<String, dynamic> json) {
+    factory Product.fromJson(Map<String, dynamic> json) {
     return Product(
       id: json['id'],
       title: json['title'],
