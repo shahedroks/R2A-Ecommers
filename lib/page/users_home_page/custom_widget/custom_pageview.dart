@@ -69,7 +69,7 @@ class _CustomPageviewState extends State<CustomPageview> {
                     margin: EdgeInsets.symmetric(horizontal: 2),
                     padding: EdgeInsets.symmetric(horizontal: 2),
 
-                    height:190,
+                    height:200,
                     width: double.infinity,
                     child: ClipRRect(
                       borderRadius: BorderRadius.all(Radius.circular(30)),
