@@ -16,7 +16,7 @@ class UsersHomePage extends StatefulWidget {
 
   @override
   State<UsersHomePage> createState() => _UsersHomePageState();
-  PageController con = PageController();
+
 }
 
   // page View
@@ -76,7 +76,7 @@ class _UsersHomePageState extends State<UsersHomePage> {
           Container(
             height: 160,
               width: double.infinity,
-              child: CustomPageview()),
+              child: CustomPageview(image: image,)),
           SizedBox(height: 5,),
           CustomCetagoriButton(),
           Expanded(child: productData.isEmpty ? Center(child: CircularProgressIndicator()):CustomHomeProduct(productData: productData))

@@ -6,36 +6,56 @@ import 'package:ecommers_project/page/users_home_page/users_home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 class CustomPageview extends StatefulWidget {
-  // final List? image;
+  final List? image;
   // var currentIndex;
-  var controler;
-
-
- CustomPageview({super.key, this.controler
-   // required this.image
- });
-
+ //  page controler
+ CustomPageview({super.key,required this.image});
   @override
   State<CustomPageview> createState() => _CustomPageviewState();
 }
-
 class _CustomPageviewState extends State<CustomPageview> {
   // singel function
   // PageChangeView pageChangeView =PageChangeView(currentIndex, image);
   // PageChange pageChange = PageChange();
+
+  late PageController pageController;
+  late int currentIndex ;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    pageController = PageController(initialPage: 0);
+    currentIndex = 0;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<HomeBloc>().add(OnPageViewUpdateEvent(image: widget.image!));
+    });
+
+  }
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomeBloc,HomeState>(
-      builder: (context,statec) {
-        return PageView.builder(
-          itemCount:image.length,
+    return
 
-          controller: PageController(initialPage: statec.countIndex),
+      // page auto change
+      BlocBuilder<HomeBloc, HomeState>(
+        builder: (context, state) {
+      if (pageController.hasClients) {
+        pageController.animateToPage(
+          state.countIndex,
+          duration: const Duration(milliseconds: 100),
+          curve: Curves.easeInOut,
+        );
+      }
+
+        return PageView.builder(
+          itemCount: widget.image?.length??0,
+
+          controller:pageController,
 
           onPageChanged: (index){
             setState(() {
               currentIndex =index;
-              context.read<HomeBloc>().add(OnPageViewUpdateEvent(image:image));
+              context.read<HomeBloc>().add(OnPageViewUpdateEvent(image:widget.image!));
             });
 
           },
@@ -53,7 +73,7 @@ class _CustomPageviewState extends State<CustomPageview> {
                     width: double.infinity,
                     child: ClipRRect(
                       borderRadius: BorderRadius.all(Radius.circular(30)),
-                        child: Image(image: AssetImage('${image[index]}'),fit: BoxFit.cover,)),
+                        child: Image(image: AssetImage('${widget.image?[index]}'),fit: BoxFit.cover,)),
                   ),
                 )
               ],
@@ -61,6 +81,7 @@ class _CustomPageviewState extends State<CustomPageview> {
           } ,
         );
       }
-    );
-  }
+    );}
+
+
 }

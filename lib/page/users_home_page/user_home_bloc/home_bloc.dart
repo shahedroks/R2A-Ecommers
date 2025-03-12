@@ -5,20 +5,19 @@ import 'package:ecommers_project/page/users_home_page/user_home_bloc/home_state.
 import 'package:ecommers_project/page/users_home_page/users_home_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class HomeBloc extends Bloc<HomeEvent,HomeState>{
+class HomeBloc extends Bloc<HomeEvent,HomeState> {
   Timer? timer;
 
-  HomeBloc():super(HomeState(countIndex: 0)){
-    on<OnPageViewUpdateEvent>((event,emit)async{
+  HomeBloc() :super(HomeState(countIndex: 0)) {
+    on<OnPageViewUpdateEvent>((event, emit) async {
       var countIndexCopy = state.countIndex;
-      var imageCopy = event.image;
+      var imageCopy = event.image??[];
 
       timer?.cancel();
 
 
-    timer = Timer.periodic(Duration(seconds: 5), (Timer time) {
-
-        if (countIndexCopy < imageCopy.length-1) {
+      timer = Timer.periodic(Duration(seconds: 5), (Timer time) {
+        if (countIndexCopy < imageCopy.length - 1) {
           countIndexCopy++;
           print(countIndexCopy);
         } else {
@@ -29,10 +28,10 @@ class HomeBloc extends Bloc<HomeEvent,HomeState>{
       });
     });
   }
+
+  @override
+  Future<void> close() {
+    timer?.cancel(); // null চেক করে Timer বন্ধ করো
+    return super.close(); // মূল Bloc বন্ধ করার মেথড
+  }
 }
-// @override
-// Future<void> close() {
-//   timer?.cancel(); // null চেক করে Timer বন্ধ করো
-//   return super.close(); // মূল Bloc বন্ধ করার মেথড
-// }
-// }
