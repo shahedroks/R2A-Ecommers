@@ -8,10 +8,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class CustomPageview extends StatefulWidget {
   // final List? image;
   // var currentIndex;
-  // var controler;
+  var controler;
 
 
- CustomPageview({super.key,
+ CustomPageview({super.key, this.controler
    // required this.image
  });
 
@@ -30,16 +30,14 @@ class _CustomPageviewState extends State<CustomPageview> {
         return PageView.builder(
           itemCount:image.length,
 
-          // controller: widget.controler,
+          controller: PageController(initialPage: statec.countIndex),
 
           onPageChanged: (index){
-            // setState(() {
-            //   pageChange.isPageChange(pageChangeView);
+            setState(() {
+              currentIndex =index;
+              context.read<HomeBloc>().add(OnPageViewUpdateEvent(image:image));
+            });
 
-            //   print('$index');
-            // });
-
-            context.read<HomeBloc>().add(OnPageViewUpdateEvent(image:image));
           },
           itemBuilder:(contex, index){
             return Stack(

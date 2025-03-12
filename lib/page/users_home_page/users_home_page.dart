@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:ecommers_project/page/login_page/custom_widget/custom_text_box.dart';
 import 'package:ecommers_project/page/users_home_page/api/home_api.dart';
-import 'package:ecommers_project/page/users_home_page/custom_widget/Custom_home_product.dart';
+import 'package:ecommers_project/page/users_home_page/custom_widget/custom_home_product.dart';
 import 'package:ecommers_project/page/users_home_page/custom_widget/custom_appber.dart';
 import 'package:ecommers_project/page/users_home_page/custom_widget/custom_search_ber.dart';
 import 'package:ecommers_project/page/users_home_page/custom_widget/custom_cetagori_button.dart';
@@ -37,10 +37,7 @@ class UsersHomePage extends StatefulWidget {
 
 class _UsersHomePageState extends State<UsersHomePage> {
 
-
-
-
-
+  // PageController pageController = PageController();
 
 
 
