@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:ecommers_project/page/login_page/custom_widget/custom_text_box.dart';
 import 'package:ecommers_project/page/users_home_page/api/home_api.dart';
+import 'package:ecommers_project/page/users_home_page/custom_widget/custom_buttonshit.dart';
 import 'package:ecommers_project/page/users_home_page/custom_widget/custom_home_product.dart';
 import 'package:ecommers_project/page/users_home_page/custom_widget/custom_appber.dart';
 import 'package:ecommers_project/page/users_home_page/custom_widget/custom_search_ber.dart';
@@ -79,9 +80,12 @@ class _UsersHomePageState extends State<UsersHomePage> {
               child: CustomPageview(image: image,)),
           SizedBox(height: 5,),
           CustomCetagoriButton(),
-          Expanded(child: productData.isEmpty ? Center(child: CircularProgressIndicator()):CustomHomeProduct(productData: productData))
+          Expanded(child: productData.isEmpty ? Center(child: CircularProgressIndicator()):CustomHomeProduct(productData: productData)),
+
         ],
+
       ),
+      bottomNavigationBar: CustomBottomSheet(),
     );
   }
 }
