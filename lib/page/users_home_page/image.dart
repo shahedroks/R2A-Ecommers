@@ -1,0 +1,1 @@
+var loding = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ALoading_icon.gif&psig=AOvVaw1aHeuG89XBjg8V6aDkOACQ&ust=1741857934713000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCJjBjs6chIwDFQAAAAAdAAAAABAE";

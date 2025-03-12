@@ -2,8 +2,9 @@ import 'dart:convert';
 
 import 'package:ecommers_project/page/login_page/custom_widget/custom_text_box.dart';
 import 'package:ecommers_project/page/users_home_page/api/home_api.dart';
+import 'package:ecommers_project/page/users_home_page/custom_widget/Custom_home_product.dart';
 import 'package:ecommers_project/page/users_home_page/custom_widget/custom_appber.dart';
-import 'package:ecommers_project/page/users_home_page/custom_widget/custom_button.dart';
+import 'package:ecommers_project/page/users_home_page/custom_widget/custom_search_ber.dart';
 import 'package:ecommers_project/page/users_home_page/custom_widget/custom_cetagori_button.dart';
 import 'package:ecommers_project/page/users_home_page/custom_widget/custom_pageview.dart';
 import 'package:ecommers_project/page/users_home_page/model/product%20_model.dart';
@@ -68,17 +69,20 @@ class _UsersHomePageState extends State<UsersHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
+    
       body:Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-
+          SizedBox(height: 50,),
+          CustomSearchBer(),
+          SizedBox(height: 10,),
           Container(
             height: 160,
               width: double.infinity,
               child: CustomPageview()),
           SizedBox(height: 5,),
           CustomCetagoriButton(),
+          Expanded(child: productData.isEmpty ? Center(child: CircularProgressIndicator()):CustomHomeProduct(productData: productData))
         ],
       ),
     );
