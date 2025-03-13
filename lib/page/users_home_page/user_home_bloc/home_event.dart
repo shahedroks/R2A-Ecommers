@@ -1,5 +1,12 @@
-abstract class HomeEvent {}
-class OnPageViewUpdateEvent extends HomeEvent{
-  List image;
-  OnPageViewUpdateEvent({required this.image});
+abstract class PageViewEvent {}
+abstract class CartEvent{}
+class OnPageViewUpdateEvent extends PageViewEvent{
+  List isImage;
+  OnPageViewUpdateEvent({required this.isImage});
+}
+
+class OnAddToCart extends CartEvent{
+  late dynamic isProduct;
+  OnAddToCart(this.isProduct);
+
 }

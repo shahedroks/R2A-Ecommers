@@ -28,7 +28,7 @@ class _CustomPageviewState extends State<CustomPageview> {
     pageController = PageController(initialPage: 0);
     currentIndex = 0;
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      context.read<HomeBloc>().add(OnPageViewUpdateEvent(image: widget.image!));
+      context.read<PageViewBloc>().add(OnPageViewUpdateEvent(isImage: widget.image!));
     });
 
   }
@@ -37,11 +37,11 @@ class _CustomPageviewState extends State<CustomPageview> {
     return
 
       // page auto change
-      BlocBuilder<HomeBloc, HomeState>(
+      BlocBuilder<PageViewBloc, PageViewState>(
         builder: (context, state) {
       if (pageController.hasClients) {
         pageController.animateToPage(
-          state.countIndex,
+          state.isCountIndex,
           duration: const Duration(milliseconds: 100),
           curve: Curves.easeInOut,
         );
@@ -55,7 +55,7 @@ class _CustomPageviewState extends State<CustomPageview> {
           onPageChanged: (index){
             setState(() {
               currentIndex =index;
-              context.read<HomeBloc>().add(OnPageViewUpdateEvent(image:widget.image!));
+              context.read<PageViewBloc>().add(OnPageViewUpdateEvent(isImage:widget.image!));
             });
 
           },
