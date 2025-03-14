@@ -10,7 +10,7 @@ class PageViewBloc extends Bloc<PageViewEvent,PageViewState> {
   Timer? timer;
 
   PageViewBloc() :super(PageViewState(isCountIndex: 0,)) {
-    on<OnPageViewUpdateEvent>((event, emit)  {
+    on<OnPageViewUpdate>((event, emit)  {
       var isCountIndexCopy = state.isCountIndex;
       // var isImageCopy = event.isImage??[];
 
@@ -50,6 +50,7 @@ class CartBloc extends Bloc<CartEvent,CartState> {
         event.isProduct.quantity = event.isProduct.quantity += 1;
         isCartQuantityCopy = isCartQuantityCopy + 1;
         isFavoriteButtonCopy = true;
+        emit(CartState(isFavoriteButton: isFavoriteButtonCopy,isCartQuantity: isCartQuantityCopy,isCart: isCartCopy));
       } else {
         isCartCopy.add(event.isProduct);
         isCartQuantityCopy = isCartQuantityCopy + 1;

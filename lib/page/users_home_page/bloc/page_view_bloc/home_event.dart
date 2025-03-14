@@ -1,8 +1,10 @@
 abstract class PageViewEvent {}
 abstract class CartEvent{}
-class OnPageViewUpdateEvent extends PageViewEvent{
+
+
+class OnPageViewUpdate extends PageViewEvent{
   List isImage;
-  OnPageViewUpdateEvent({required this.isImage});
+  OnPageViewUpdate({required this.isImage});
 }
 
 class OnAddToCart extends CartEvent{
