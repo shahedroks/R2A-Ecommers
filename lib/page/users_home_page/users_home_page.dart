@@ -74,12 +74,15 @@ class _UsersHomePageState extends State<UsersHomePage> {
           SizedBox(height: 50,),
           CustomSearchBer(),
           SizedBox(height: 10,),
+          // PageView
           Container(
             height: 160,
               width: double.infinity,
               child: CustomPageview(image: image,)),
           SizedBox(height: 5,),
+
           CustomCetagoriButton(),
+          // GridView
           Expanded(child: productData.isEmpty ? Center(child: CircularProgressIndicator()):CustomHomeProduct(productData: productData)),
 
         ],

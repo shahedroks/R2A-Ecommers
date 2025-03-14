@@ -23,6 +23,7 @@ class Product {
   final Meta meta;
   final List<String> images;
   final String thumbnail;
+  int? quantity;
 
   Product({
     required this.id,
@@ -47,6 +48,7 @@ class Product {
     required this.meta,
     required this.images,
     required this.thumbnail,
+    this.quantity
   });
     factory Product.fromJson(Map<String, dynamic> json) {
     return Product(
@@ -72,6 +74,7 @@ class Product {
       meta: Meta.fromJson(json['meta']),
       images: List<String>.from(json['images']),
       thumbnail: json['thumbnail'],
+      quantity: 0
     );
   }
 

@@ -30,8 +30,6 @@ class PageViewBloc extends Bloc<PageViewEvent,PageViewState> {
     });
   }
 
-
-
   @override
   Future<void> close() {
     timer?.cancel(); // null চেক করে Timer বন্ধ করো
@@ -42,29 +40,23 @@ class PageViewBloc extends Bloc<PageViewEvent,PageViewState> {
 
 // CartBloc
 class CartBloc extends Bloc<CartEvent,CartState> {
-  Timer? timer;
+  CartBloc() :super(CartState(isCartQuantity: 0,isCart: [],isFavoriteButton: false)) {
+    on<OnAddToCart>((event, emit) {
+      int isCartQuantityCopy = state.isCartQuantity!;
+      final List <dynamic> isCartCopy = state.isCart!;
+      bool isFavoriteButtonCopy = state.isFavoriteButton;
 
-  CartBloc() :super(CartState(isCartQuantity: 0,isCart: [])) {
-    on<OnAddToCart>((event, emit)  {
-     final int isCartQuantityCopy = state.isCartQuantity!;
-     final List <dynamic> isCartCopy = state.isCart!;
-
-     if(isCartCopy.contains(event.isProduct)){
-       event.isProduct.quantity = event.isProduct.quantity++;
-
-
-
-     }
-
-
+      if (state.isCart!.contains(event.isProduct)) {
+        event.isProduct.quantity = event.isProduct.quantity += 1;
+        isCartQuantityCopy = isCartQuantityCopy + 1;
+        isFavoriteButtonCopy = true;
+      } else {
+        isCartCopy.add(event.isProduct);
+        isCartQuantityCopy = isCartQuantityCopy + 1;
+        event.isProduct.quantity = event.isProduct.quantity + 1;
+        isFavoriteButtonCopy = true;
+        emit(CartState(isFavoriteButton: isFavoriteButtonCopy,isCartQuantity: isCartQuantityCopy,isCart: isCartCopy));
+      }
     });
-  }
-
-
-
-  @override
-  Future<void> close() {
-    timer?.cancel(); // null চেক করে Timer বন্ধ করো
-    return super.close(); // মূল Bloc বন্ধ করার মেথড
   }
 }

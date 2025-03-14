@@ -1,4 +1,5 @@
 import 'package:ecommers_project/page/login_page/block/login_bloc.dart';
+import 'package:ecommers_project/page/users_home_page/custom_widget/custom_favorat_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 class CustomSearchBer extends StatelessWidget {
@@ -6,14 +7,18 @@ class CustomSearchBer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double sizeheight = MediaQuery.of(context).size.height;
+    double sizewidth = MediaQuery.of(context).size.width;
     return BlocBuilder<LoginBloc,LoginState>(
         builder: (context, static) {
           return Row(
             children: [
               Expanded(
                 child: Container(
+             margin: EdgeInsets.only(left: 5,right: 5),
 
-                  height: 50,
+                  height: sizeheight*0.06,
+
                   child: TextFormField(
                       keyboardType: TextInputType.text,
                       obscureText:false,
@@ -29,15 +34,7 @@ class CustomSearchBer extends StatelessWidget {
                 ),
               ),
              SizedBox(width: 3,),
-             ClipRRect(
-               borderRadius: BorderRadius.all(Radius.circular(5)),
-               child: Container(
-                 width: 40,
-                 height: 50,
-                 color: Colors.orange,
-                 child:
-                   Icon(Icons.shopping_cart_outlined),),
-             )
+            CustomFavoratList()
             ],
           );
         }
