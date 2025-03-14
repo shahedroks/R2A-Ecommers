@@ -1,11 +1,11 @@
+import 'package:ecommers_project/page/users_home_page/bloc/cart_update_bloc/bloc.dart';
+import 'package:ecommers_project/page/users_home_page/bloc/page_view_bloc/home_bloc.dart';
+import 'package:ecommers_project/page/users_home_page/bloc/page_view_bloc/home_state.dart';
 import 'package:ecommers_project/page/users_home_page/custom_widget/custom_error_image.dart';
 import 'package:ecommers_project/page/users_home_page/custom_widget/custom_prices.dart';
 import 'package:ecommers_project/page/users_home_page/custom_widget/custom_product_name.dart';
 import 'package:ecommers_project/page/users_home_page/custom_widget/custom_rating.dart';
 import 'package:ecommers_project/page/users_home_page/image.dart';
-import 'package:ecommers_project/page/users_home_page/user_home_bloc/home_bloc.dart';
-import 'package:ecommers_project/page/users_home_page/user_home_bloc/home_event.dart';
-import 'package:ecommers_project/page/users_home_page/user_home_bloc/home_state.dart';
 import 'package:ecommers_project/page/users_home_page/users_home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -47,7 +47,7 @@ class CustomHomeProduct extends StatelessWidget {
                            right: 5,
                              child: GestureDetector(
                                onTap:(){
-                                 context.read<CartBloc>().add(OnAddToCart(i));
+                                 // context.read<CartBloc>().add(OnAddToCart(i));
                                  print(statec.isCartQuantity);
                                  print(statec.isCart);
                                  print(statec.isFavoriteButton);

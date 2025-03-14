@@ -1,7 +1,7 @@
+import 'package:ecommers_project/page/users_home_page/bloc/page_view_bloc/home_bloc.dart';
+import 'package:ecommers_project/page/users_home_page/bloc/page_view_bloc/home_event.dart';
+import 'package:ecommers_project/page/users_home_page/bloc/page_view_bloc/home_state.dart';
 import 'package:ecommers_project/page/users_home_page/funtion/pageview_function.dart';
-import 'package:ecommers_project/page/users_home_page/user_home_bloc/home_bloc.dart';
-import 'package:ecommers_project/page/users_home_page/user_home_bloc/home_event.dart';
-import 'package:ecommers_project/page/users_home_page/user_home_bloc/home_state.dart';
 import 'package:ecommers_project/page/users_home_page/users_home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -28,7 +28,7 @@ class _CustomPageviewState extends State<CustomPageview> {
     pageController = PageController(initialPage: 0);
     currentIndex = 0;
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      context.read<PageViewBloc>().add(OnPageViewUpdateEvent(isImage: widget.image!));
+      context.read<PageViewBloc>().add(OnPageViewUpdate(isImage: widget.image!));
     });
 
   }
@@ -55,7 +55,7 @@ class _CustomPageviewState extends State<CustomPageview> {
           onPageChanged: (index){
             setState(() {
               currentIndex =index;
-              context.read<PageViewBloc>().add(OnPageViewUpdateEvent(isImage:widget.image!));
+              context.read<PageViewBloc>().add(OnPageViewUpdate(isImage:widget.image!));
             });
 
           },

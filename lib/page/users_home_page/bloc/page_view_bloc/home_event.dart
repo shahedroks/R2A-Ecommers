@@ -1,5 +1,5 @@
 abstract class PageViewEvent {}
-abstract class CartEvent{}
+
 
 
 class OnPageViewUpdate extends PageViewEvent{
@@ -7,8 +7,3 @@ class OnPageViewUpdate extends PageViewEvent{
   OnPageViewUpdate({required this.isImage});
 }
 
-class OnAddToCart extends CartEvent{
-  late dynamic isProduct;
-  OnAddToCart(this.isProduct);
-
-}

@@ -1,8 +1,9 @@
 import 'dart:async';
 
 import 'package:ecommers_project/page/users_home_page/api/home_api.dart';
-import 'package:ecommers_project/page/users_home_page/user_home_bloc/home_event.dart';
-import 'package:ecommers_project/page/users_home_page/user_home_bloc/home_state.dart';
+import 'package:ecommers_project/page/users_home_page/bloc/page_view_bloc/home_event.dart';
+import 'package:ecommers_project/page/users_home_page/bloc/page_view_bloc/home_state.dart';
+
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -25,7 +26,7 @@ class PageViewBloc extends Bloc<PageViewEvent,PageViewState> {
           isCountIndexCopy = 0;
         }
         print(isCountIndexCopy);
-        emit(PageViewState(isCountIndex: isCountIndexCopy,));
+        emit(PageViewState (isCountIndex: isCountIndexCopy,));
       });
     });
   }
@@ -38,26 +39,3 @@ class PageViewBloc extends Bloc<PageViewEvent,PageViewState> {
 }
 
 
-// CartBloc
-class CartBloc extends Bloc<CartEvent,CartState> {
-  CartBloc() :super(CartState(isCartQuantity: 0,isCart: [],isFavoriteButton: false)) {
-    on<OnAddToCart>((event, emit) {
-      int isCartQuantityCopy = state.isCartQuantity!;
-      final List <dynamic> isCartCopy = state.isCart!;
-      bool isFavoriteButtonCopy = state.isFavoriteButton;
-
-      if (state.isCart!.contains(event.isProduct)) {
-        event.isProduct.quantity = event.isProduct.quantity += 1;
-        isCartQuantityCopy = isCartQuantityCopy + 1;
-        isFavoriteButtonCopy = true;
-        emit(CartState(isFavoriteButton: isFavoriteButtonCopy,isCartQuantity: isCartQuantityCopy,isCart: isCartCopy));
-      } else {
-        isCartCopy.add(event.isProduct);
-        isCartQuantityCopy = isCartQuantityCopy + 1;
-        event.isProduct.quantity = event.isProduct.quantity + 1;
-        isFavoriteButtonCopy = true;
-        emit(CartState(isFavoriteButton: isFavoriteButtonCopy,isCartQuantity: isCartQuantityCopy,isCart: isCartCopy));
-      }
-    });
-  }
-}

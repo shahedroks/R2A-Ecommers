@@ -1,7 +1,8 @@
 import 'package:ecommers_project/page/login_page/block/login_bloc.dart';
 import 'package:ecommers_project/page/login_page/iogin_page.dart';
 import 'package:ecommers_project/page/login_page/logout_page.dart';
-import 'package:ecommers_project/page/users_home_page/user_home_bloc/home_bloc.dart';
+import 'package:ecommers_project/page/users_home_page/bloc/cart_update_bloc/bloc.dart';
+import 'package:ecommers_project/page/users_home_page/bloc/page_view_bloc/home_bloc.dart';
 import 'package:ecommers_project/page/users_home_page/users_home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,8 +19,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(providers: [
       BlocProvider(create: (_) => LoginBloc()),
-      BlocProvider(create: (_) => CartBloc()),
       BlocProvider(create: (_) => PageViewBloc()),
+      BlocProvider(create: (_) => CartBloc()),
 
     ],
       child: MaterialApp(
